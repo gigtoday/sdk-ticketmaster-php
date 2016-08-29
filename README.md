@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gigtoday/sdk-ticketmaster-php.svg?branch=master)](https://travis-ci.org/gigtoday/sdk-ticketmaster-php)
+
 # ticketmaster PHP SDK
 
 PHP SDK for the **[Ticketmaster Open Platform](http://developer.ticketmaster.com/)**.
