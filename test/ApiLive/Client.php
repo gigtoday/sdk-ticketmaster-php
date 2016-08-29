@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  *
  */
-namespace Ticketmaster\Test\Api;
+namespace Ticketmaster\Test\ApiLive;
 
 /**
  *
@@ -42,17 +42,12 @@ class Client extends \Ticketmaster\Test\AbstractTest
      */
     public function testGetEventDetails()
     {
-//         $this->markTestSkipped(sprintf(
-//             'Function "%s" makes a live call to the api.',
-//             __FUNCTION__
-//         ));
-
-//         $this->assertInstanceOf(
-//             \Ticketmaster\Lib\Entity\Event::class,
-//             $response = $this->client->getEventDetails(
-//                 [ 'id' => '1AKZAv_GkdkdtBM' ]
-//             )
-//         );
+        $this->assertInstanceOf(
+            \Ticketmaster\Lib\Entity\Event::class,
+            $response = $this->client->getEventDetails(
+                [ 'id' => '1AKZAv_GkdkdtBM' ]
+            )
+        );
     }
 
     /**
@@ -61,11 +56,6 @@ class Client extends \Ticketmaster\Test\AbstractTest
      */
     public function testGetEventImages()
     {
-        $this->markTestSkipped(sprintf(
-            'Function "%s" makes a live call to the api.',
-            __FUNCTION__
-        ));
-
         $this->assertContainsOnly(
             \Ticketmaster\Lib\Entity\Image::class,
             $response = $this->client->getEventImages(
@@ -80,11 +70,6 @@ class Client extends \Ticketmaster\Test\AbstractTest
      */
     public function testSearchEvents()
     {
-        $this->markTestSkipped(sprintf(
-            'Function "%s" makes a live call to the api.',
-            __FUNCTION__
-        ));
-
         $this->assertInstanceOf(
             \Ticketmaster\Lib\Entity\EventCollection::class,
             $response = $this->client->searchEvents()

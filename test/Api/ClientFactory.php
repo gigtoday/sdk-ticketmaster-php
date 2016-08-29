@@ -29,16 +29,4 @@ class ClientFactory extends \Ticketmaster\Test\AbstractTest
     {
         $this->assertInstanceOf(\Ticketmaster\Api\Client::class, \Ticketmaster\Api\ClientFactory::fromEnv());
     }
-
-    /**
-     *
-     * @expectedException \Ticketmaster\Lib\Exception\InvalidArgumentException
-     * @covers \Ticketmaster\Api\ClientFactory::fromEnv
-     */
-    public function testFromEnvException()
-    {
-        putenv('TICKETMASTER_CONSUMER_KEY=0');
-
-        \Ticketmaster\Api\ClientFactory::fromEnv();
-    }
 }

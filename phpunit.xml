@@ -8,15 +8,18 @@
 		</whitelist>
 	</filter>
 	<logging>
-		<log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+		<log type="coverage-text" target="php://stdout" showUncoveredFiles="false" />
 	</logging>
 	<php>
-		<env name="TICKETMASTER_CONSUMER_KEY" value="test" />
-		<env name="TICKETMASTER_CONSUMER_SECRET" value="123" />
+		<env name="TICKETMASTER_CONSUMER_KEY" value="O0OR6ZDaWnGlvcppA0VuAaZ1KsMZAsgz" />
+		<env name="TICKETMASTER_CONSUMER_SECRET" value="8W7aZhyUWFPQQ1An" />
 	</php>
 	<testsuites>
-		<testsuite name="unit">
+		<testsuite name="all">
 			<directory suffix=".php">test/</directory>
+		</testsuite>
+		<testsuite name="api_live_calls">
+			<directory suffix=".php">test/ApiLive/</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>
