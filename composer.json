@@ -1,5 +1,5 @@
 {
-    "name": "gigtoday/sdk-ticketmaster",
+    "name": "matchilling/sdk-ticketmaster",
     "description": "PHP SDK for the Ticketmaster Open Platform.",
     "require": {
         "php": ">=5.6.0",
