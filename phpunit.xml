@@ -11,12 +11,12 @@
 		<log type="coverage-text" target="php://stdout" showUncoveredFiles="false" />
 	</logging>
 	<php>
-		<env name="TICKETMASTER_CONSUMER_KEY" value="O0OR6ZDaWnGlvcppA0VuAaZ1KsMZAsgz" />
-		<env name="TICKETMASTER_CONSUMER_SECRET" value="8W7aZhyUWFPQQ1An" />
+		<env name="TICKETMASTER_CONSUMER_KEY" value="YOUR_TICKETMASTER_CONSUMER_KEY" />
+		<env name="TICKETMASTER_CONSUMER_SECRET" value="YOUR_TICKETMASTER_CONSUMER_SECRET" />
 	</php>
 	<testsuites>
-		<testsuite name="all">
-			<directory suffix=".php">test/</directory>
+		<testsuite name="api">
+			<directory suffix=".php">test/Api/</directory>
 		</testsuite>
 		<testsuite name="api_live_calls">
 			<directory suffix=".php">test/ApiLive/</directory>

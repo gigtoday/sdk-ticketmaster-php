@@ -113,9 +113,7 @@ class Client
 
         try {
             return $this->serviceClient->execute($command);
-
         } catch (\GuzzleHttp\Command\Exception\CommandClientException $exception) {
-
             if (429 === $exception->getCode()) {
                 $this->eventDispatcher->dispatch(Event\HitRateLimit::NAME, new Event\HitRateLimit($exception));
 

@@ -1,330 +1,330 @@
 {
-    "operations": {
-        "getEventDetails": {
-            "description": "Authentication required. Returns the event detail by event ID.",
-            "httpMethod": "GET",
-            "uri": "discovery/{version}/events/{id}.{format}",
-            "responseModel": "default",
-            "data": {
-                "entityClass": "Ticketmaster\\Lib\\Entity\\Event",
-                "jsonPath": "$.."
-            },
-            "parameters": {
-                "apikey": {
-                    "type": "string",
-                    "location": "query",
-                    "required": true
-                },
-                "format": {
-                    "default": "json",
-                    "description": "The output format.",
-                    "location": "uri",
-                    "required": true,
-                    "type": "string"
-                },
-                "id": {
-                    "description": "The event id.",
-                    "location": "uri",
-                    "required": true,
-                    "type": "string"
-                },
-                "locale": {
-                    "default": null,
-                    "description": "There is no fallback mechanism, so it’s possible you will not have values in multi-lingual fields.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "version": {
-                    "description": "The api version.",
-                    "location": "uri",
-                    "required": true,
-                    "type": "string"
-                }
-            }
+  "operations": {
+    "getEventDetails": {
+      "description": "Authentication required. Returns the event detail by event ID.",
+      "httpMethod": "GET",
+      "uri": "discovery/{version}/events/{id}.{format}",
+      "responseModel": "default",
+      "data": {
+        "entityClass": "Ticketmaster\\Lib\\Entity\\Event",
+        "jsonPath": "$.."
+      },
+      "parameters": {
+        "apikey": {
+          "type": "string",
+          "location": "query",
+          "required": true
         },
-        "getEventImages": {
-            "description": "Authentication required. Returns all the images for an event by ID. If an event does not have an image for a supported resolution, the event’s major category image will be returned instead.",
-            "httpMethod": "GET",
-            "uri": "discovery/{version}/events/{id}/images.{format}",
-            "responseModel": "default",
-            "data": {
-                "entityClass": "Ticketmaster\\Lib\\Entity\\Image[]",
-                "jsonPath": "$..images"
-            },
-            "parameters": {
-                "apikey": {
-                    "type": "string",
-                    "location": "query",
-                    "required": true
-                },
-                "format": {
-                    "default": "json",
-                    "description": "The output format.",
-                    "location": "uri",
-                    "required": true,
-                    "type": "string"
-                },
-                "id": {
-                    "description": "The event id.",
-                    "location": "uri",
-                    "required": true,
-                    "type": "string"
-                },
-                "locale": {
-                    "default": null,
-                    "description": "There is no fallback mechanism, so it’s possible you will not have values in multi-lingual fields.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "version": {
-                    "description": "The api version.",
-                    "location": "uri",
-                    "required": true,
-                    "type": "string"
-                }
-            }
+        "format": {
+          "default": "json",
+          "description": "The output format.",
+          "location": "uri",
+          "required": true,
+          "type": "string"
         },
-        "searchEvents": {
-            "description": "Authentication required. Returns the 20 most recent events for the authenticating user.",
-            "httpMethod": "GET",
-            "uri": "discovery/{version}/events.{format}",
-            "responseModel": "default",
-            "data": {
-                "entityClass": "Ticketmaster\\Lib\\Entity\\EventCollection",
-                "jsonPath": "$.."
-            },
-            "parameters": {
-                "apikey": {
-                    "type": "string",
-                    "location": "query",
-                    "required": true
-                },
-                "attractionId": {
-                    "default": null,
-                    "description": "Attraction ID(s) separated by comma.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "city": {
-                    "default": null,
-                    "description": "Name of a city.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "classificationId": {
-                    "default": null,
-                    "description": "Any classification id - segment - genre - sub-genre.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "classificationName": {
-                    "default": null,
-                    "description": "Any classification name - segment - genre - sub-genre.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "countryCode": {
-                    "default": null,
-                    "description": "ISO value for the country in which you want to query events in. Possible values are: ('US'|'CA'|'AU'|'NZ'|'MX').",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "dmaId": {
-                    "default": null,
-                    "description": "A DMA id.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "endDateTime": {
-                    "default": null,
-                    "description": "Include events happening before this date. E.g. '2017-01-01T00:00:00Z'",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "format": {
-                    "default": "json",
-                    "description": "The output format.",
-                    "location": "uri",
-                    "required": true,
-                    "type": "string"
-                },
-                "includeTBA": {
-                    "default": null,
-                    "description": "Whether or not to return events with dates to be announced (TBA). Default is ‘no’, TBA events are not returned. Possible values: (yes|no|only)",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "includeTest": {
-                    "default": null,
-                    "description": "Whether or not to return test events. Default is ‘no’, test events are not returned. Possible values: (yes|no|only)",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "keyword": {
-                    "default": null,
-                    "description": "A string to search against event’s name. Partial word will not be found. ex: keyword=Mado will not found event with name: Madonna",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "latlong": {
-                    "default": null,
-                    "description": "The Latitude, Longitude coordinates for the venue in which this event is taking place Format: '34.0928090,-118.3286610'.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "locale": {
-                    "default": null,
-                    "description": "There is no fallback mechanism, so it’s possible you will not have values in multi-lingual fields.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "marketId": {
-                    "default": null,
-                    "description": "The city/metro area in which this event takes place.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "onsaleEndDateTime": {
-                    "default": null,
-                    "description": "Include events going onsale before this date.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "onsaleStartDateTime": {
-                    "default": null,
-                    "description": "Include events going onsale after this date.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "page": {
-                    "default": null,
-                    "description": "The page for paginating through the results.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "postalCode": {
-                    "default": null,
-                    "description": "Zipcode or Postal Code of the venue in which the event is taking place. This is text-based search, not location-based search. Use lat/long + radius search for nearby events.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "radius": {
-                    "default": null,
-                    "description": "The radius of the area in which we want to search for events.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "size": {
-                    "default": null,
-                    "description": "The number of events returned in the API response. (Max 500).",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "source": {
-                    "default": null,
-                    "description": "Source of the event. Possible values are ‘ticketmaster’, ‘frontgate’, ‘universe’.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "sort": {
-                    "default": null,
-                    "description": "The search sort criteria. Possible values: ('name,asc'|'name,desc'|'date,asc'|'date,desc'|'name,date,asc'|'name,date,desc'|'date,name,asc'|'date,name,desc')",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "startDateTime": {
-                    "default": null,
-                    "description": "Include events happening after this date. E.g. '2017-01-01T00:00:00Z'",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "stateCode": {
-                    "default": null,
-                    "description": "A state code.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "unit": {
-                    "default": null,
-                    "description": "The radius distance unit. Possible values: miles, km.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "venueId": {
-                    "default": null,
-                    "description": "Venue ID(s) separated by comma.",
-                    "location": "query",
-                    "required": false,
-                    "type": "string"
-                },
-                "version": {
-                    "description": "The api version.",
-                    "location": "uri",
-                    "required": true,
-                    "type": "string"
-                }
-            }
+        "id": {
+          "description": "The event id.",
+          "location": "uri",
+          "required": true,
+          "type": "string"
+        },
+        "locale": {
+          "default": null,
+          "description": "There is no fallback mechanism, so it’s possible you will not have values in multi-lingual fields.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "version": {
+          "description": "The api version.",
+          "location": "uri",
+          "required": true,
+          "type": "string"
         }
+      }
     },
-    "models": {
-        "default": {
-            "type": "object",
-            "properties": {
-                "body": {
-                    "location": "body"
-                },
-                "rate_limit": {
-                    "location": "header",
-                    "sentAs": "rate-limit"
-                },
-                "rate_limit_available": {
-                    "location": "header",
-                    "sentAs": "rate-limit-available"
-                },
-                "rate_limit_over": {
-                    "location": "header",
-                    "sendAs": "rate-limit-over"
-                },
-                "rate_limit_reset": {
-                    "location": "header",
-                    "sendAs": "rate-limit-reset"
-                },
-                "status_code": {
-                    "location": "statusCode"
-                }
-            }
+    "getEventImages": {
+      "description": "Authentication required. Returns all the images for an event by ID. If an event does not have an image for a supported resolution, the event’s major category image will be returned instead.",
+      "httpMethod": "GET",
+      "uri": "discovery/{version}/events/{id}/images.{format}",
+      "responseModel": "default",
+      "data": {
+        "entityClass": "Ticketmaster\\Lib\\Entity\\Image[]",
+        "jsonPath": "$..images"
+      },
+      "parameters": {
+        "apikey": {
+          "type": "string",
+          "location": "query",
+          "required": true
         },
-        "plainJson": {
-            "type": "object",
-            "additionalProperties": {
-                "location": "json"
-            }
+        "format": {
+          "default": "json",
+          "description": "The output format.",
+          "location": "uri",
+          "required": true,
+          "type": "string"
+        },
+        "id": {
+          "description": "The event id.",
+          "location": "uri",
+          "required": true,
+          "type": "string"
+        },
+        "locale": {
+          "default": null,
+          "description": "There is no fallback mechanism, so it’s possible you will not have values in multi-lingual fields.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "version": {
+          "description": "The api version.",
+          "location": "uri",
+          "required": true,
+          "type": "string"
         }
+      }
+    },
+    "searchEvents": {
+      "description": "Authentication required. Returns the 20 most recent events for the authenticating user.",
+      "httpMethod": "GET",
+      "uri": "discovery/{version}/events.{format}",
+      "responseModel": "default",
+      "data": {
+        "entityClass": "Ticketmaster\\Lib\\Entity\\EventCollection",
+        "jsonPath": "$.."
+      },
+      "parameters": {
+        "apikey": {
+          "type": "string",
+          "location": "query",
+          "required": true
+        },
+        "attractionId": {
+          "default": null,
+          "description": "Attraction ID(s) separated by comma.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "city": {
+          "default": null,
+          "description": "Name of a city.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "classificationId": {
+          "default": null,
+          "description": "Any classification id - segment - genre - sub-genre.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "classificationName": {
+          "default": null,
+          "description": "Any classification name - segment - genre - sub-genre.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "countryCode": {
+          "default": null,
+          "description": "ISO value for the country in which you want to query events in. Possible values are: ('US'|'CA'|'AU'|'NZ'|'MX').",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "dmaId": {
+          "default": null,
+          "description": "A DMA id.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "endDateTime": {
+          "default": null,
+          "description": "Include events happening before this date. E.g. '2017-01-01T00:00:00Z'",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "format": {
+          "default": "json",
+          "description": "The output format.",
+          "location": "uri",
+          "required": true,
+          "type": "string"
+        },
+        "includeTBA": {
+          "default": null,
+          "description": "Whether or not to return events with dates to be announced (TBA). Default is ‘no’, TBA events are not returned. Possible values: (yes|no|only)",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "includeTest": {
+          "default": null,
+          "description": "Whether or not to return test events. Default is ‘no’, test events are not returned. Possible values: (yes|no|only)",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "keyword": {
+          "default": null,
+          "description": "A string to search against event’s name. Partial word will not be found. ex: keyword=Mado will not found event with name: Madonna",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "latlong": {
+          "default": null,
+          "description": "The Latitude, Longitude coordinates for the venue in which this event is taking place Format: '34.0928090,-118.3286610'.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "locale": {
+          "default": null,
+          "description": "There is no fallback mechanism, so it’s possible you will not have values in multi-lingual fields.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "marketId": {
+          "default": null,
+          "description": "The city/metro area in which this event takes place.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "onsaleEndDateTime": {
+          "default": null,
+          "description": "Include events going onsale before this date.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "onsaleStartDateTime": {
+          "default": null,
+          "description": "Include events going onsale after this date.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "page": {
+          "default": null,
+          "description": "The page for paginating through the results.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "postalCode": {
+          "default": null,
+          "description": "Zipcode or Postal Code of the venue in which the event is taking place. This is text-based search, not location-based search. Use lat/long + radius search for nearby events.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "radius": {
+          "default": null,
+          "description": "The radius of the area in which we want to search for events.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "size": {
+          "default": null,
+          "description": "The number of events returned in the API response. (Max 500).",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "source": {
+          "default": null,
+          "description": "Source of the event. Possible values are ‘ticketmaster’, ‘frontgate’, ‘universe’.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "sort": {
+          "default": null,
+          "description": "The search sort criteria. Possible values: ('name,asc'|'name,desc'|'date,asc'|'date,desc'|'name,date,asc'|'name,date,desc'|'date,name,asc'|'date,name,desc')",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "startDateTime": {
+          "default": null,
+          "description": "Include events happening after this date. E.g. '2017-01-01T00:00:00Z'",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "stateCode": {
+          "default": null,
+          "description": "A state code.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "unit": {
+          "default": null,
+          "description": "The radius distance unit. Possible values: miles, km.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "venueId": {
+          "default": null,
+          "description": "Venue ID(s) separated by comma.",
+          "location": "query",
+          "required": false,
+          "type": "string"
+        },
+        "version": {
+          "description": "The api version.",
+          "location": "uri",
+          "required": true,
+          "type": "string"
+        }
+      }
     }
+  },
+  "models": {
+    "default": {
+      "type": "object",
+      "properties": {
+        "body": {
+          "location": "body"
+        },
+        "rate_limit": {
+          "location": "header",
+          "sentAs": "rate-limit"
+        },
+        "rate_limit_available": {
+          "location": "header",
+          "sentAs": "rate-limit-available"
+        },
+        "rate_limit_over": {
+          "location": "header",
+          "sendAs": "rate-limit-over"
+        },
+        "rate_limit_reset": {
+          "location": "header",
+          "sendAs": "rate-limit-reset"
+        },
+        "status_code": {
+          "location": "statusCode"
+        }
+      }
+    },
+    "plainJson": {
+      "type": "object",
+      "additionalProperties": {
+        "location": "json"
+      }
+    }
+  }
 }

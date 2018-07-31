@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/gigtoday/sdk-ticketmaster-php.svg?branch=master)](https://travis-ci.org/gigtoday/sdk-ticketmaster-php)
+[![Build Status](https://travis-ci.org/gigtoday/sdk-ticketmaster-php.svg?branch=master)](https://travis-ci.org/matchilling/sdk-ticketmaster-php)
 
 # ticketmaster PHP SDK
 

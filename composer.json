@@ -1,30 +1,39 @@
 {
-    "name": "matchilling/sdk-ticketmaster",
-    "description": "PHP SDK for the Ticketmaster Open Platform.",
-    "require": {
-        "php": ">=5.6.0",
-        "flow/jsonpath": "0.3.*",
-        "guzzlehttp/guzzle-services": "0.5.*",
-        "jms/serializer": "1.*",
-        "symfony/event-dispatcher": "^2.7",
-        "symfony/config": "^2.7",
-        "yosymfony/config-loader": "^1.3"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.5"
-    },
-    "autoload": {
-        "psr-4": {
-            "Ticketmaster\\Api\\": "src/Api",
-            "Ticketmaster\\Lib\\": "src/Lib"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Ticketmaster\\Test\\": "test"
-        }
-    },
-    "config": {
-        "secure-http": true
+  "name": "matchilling/sdk-ticketmaster",
+  "description": "PHP SDK for the Ticketmaster Open Platform.",
+  "require": {
+    "php": ">=5.6.0",
+    "flow/jsonpath": "0.3.*",
+    "guzzlehttp/guzzle-services": "0.5.*",
+    "jms/serializer": "1.*",
+    "symfony/event-dispatcher": "^2.7",
+    "symfony/config": "^2.7",
+    "yosymfony/config-loader": "^1.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.5",
+    "squizlabs/php_codesniffer": "^3.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ticketmaster\\Api\\": "src/Api",
+      "Ticketmaster\\Lib\\": "src/Lib"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ticketmaster\\Test\\": "test"
+    }
+  },
+  "config": {
+    "secure-http": true
+  },
+  "scripts": {
+    "test": [
+      "@composer run-script test:lint",
+      "@composer run-script test:unit"
+    ],
+    "test:lint": "./vendor/bin/phpcs --extensions=php --standard=PSR2 ./src/",
+    "test:unit": "./vendor/bin/phpunit --testsuite api --configuration phpunit.xml --coverage-text"
+  }
 }
