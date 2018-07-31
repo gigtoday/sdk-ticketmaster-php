@@ -1,8 +1,14 @@
 [![Build Status](https://travis-ci.org/gigtoday/sdk-ticketmaster-php.svg?branch=master)](https://travis-ci.org/matchilling/sdk-ticketmaster-php)
 
-# ticketmaster PHP SDK
+# Ticketmaster PHP SDK
 
-PHP SDK for the **[Ticketmaster Open Platform](http://developer.ticketmaster.com/)**.
+PHP SDK for the [Ticketmaster Open Platform](http://developer.ticketmaster.com/).
+
+## Usage
+
+```bash
+$ composer require matchilling/sdk-ticketmaster
+```
 
 ## License
 

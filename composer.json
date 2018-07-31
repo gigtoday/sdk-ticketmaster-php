@@ -1,6 +1,10 @@
 {
   "name": "matchilling/sdk-ticketmaster",
   "description": "PHP SDK for the Ticketmaster Open Platform.",
+  "authors": [{
+    "name": "Mathias Schilling",
+    "email": "m@matchilling.com"
+  }],
   "license": [
     "GPL-3.0-or-later"
   ],
