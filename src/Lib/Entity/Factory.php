@@ -74,11 +74,11 @@ class Factory
         array $response
     ) {
 
-        if (! $response['body'] instanceof \GuzzleHttp\Stream\Stream) {
+        if (! $response['body'] instanceof \GuzzleHttp\Psr7\Stream) {
             throw new \Ticketmaster\Lib\Exception\InvalidArgumentException(
                 sprintf(
                     'Response body must be an instance of "%s",',
-                    \GuzzleHttp\Stream\Stream::class
+                    \GuzzleHttp\Psr7\Stream::class
                 )
             );
         }

@@ -45,7 +45,7 @@ class Client extends \Ticketmaster\Test\AbstractTest
         $this->assertInstanceOf(
             \Ticketmaster\Lib\Entity\Event::class,
             $response = $this->client->getEventDetails(
-                [ 'id' => '1AKZAv_GkdkdtBM' ]
+                [ 'id' => 'k7vGF4kM0K5Gh' ]
             )
         );
     }
@@ -59,7 +59,7 @@ class Client extends \Ticketmaster\Test\AbstractTest
         $this->assertContainsOnly(
             \Ticketmaster\Lib\Entity\Image::class,
             $response = $this->client->getEventImages(
-                [ 'id' => '1AKZAv_GkdkdtBM' ]
+                [ 'id' => 'k7vGF4kM0K5Gh' ]
             )
         );
     }

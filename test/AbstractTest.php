@@ -18,6 +18,6 @@ namespace Ticketmaster\Test;
  * @package Ticketmaster\Test
  *
  */
-abstract class AbstractTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractTest extends \PHPUnit\Framework\TestCase
 {
 }

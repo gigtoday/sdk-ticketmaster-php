@@ -93,7 +93,7 @@ class Client
         $response  = $this->executeCommand($command);
 
         return $operation->getData('entityClass')
-            ? \Ticketmaster\Lib\Entity\Factory::fromGuzzleCommandOperation($operation, $response)
+            ? \Ticketmaster\Lib\Entity\Factory::fromGuzzleCommandOperation($operation, $response->toArray())
             : $response;
     }
 
@@ -130,17 +130,15 @@ class Client
 
     /**
      *
-     * @return \Yosymfony\ConfigLoader\RepositoryInterface
+     * @return array
      */
     private function loadServiceDescriptions()
     {
-        $fileLocator = new \Symfony\Component\Config\FileLocator(
-            sprintf('%s/../config', dirname(__DIR__))
+        $contents = file_get_contents(
+            sprintf('%s/../config/service_description.json', dirname(__DIR__))
         );
 
-        $loader = new \Yosymfony\ConfigLoader\Loaders\JsonLoader($fileLocator);
-
-        return $loader->load('service_description.json');
+        return json_decode($contents, true);
     }
 
     /**
@@ -172,7 +170,7 @@ class Client
     private function setServiceClient(\Ticketmaster\Api\Credentials $credentials)
     {
         $client = new \GuzzleHttp\Client([
-            'base_url' => 'https://app.ticketmaster.com',
+            'base_uri' => 'https://app.ticketmaster.com',
             'defaults' => [
                 'timeout' => 10,
                 'headers' => [
@@ -184,7 +182,7 @@ class Client
         $this->serviceClient = new \GuzzleHttp\Command\Guzzle\GuzzleClient(
             $client,
             new \GuzzleHttp\Command\Guzzle\Description(
-                $this->loadServiceDescriptions()->getArray()
+                $this->loadServiceDescriptions()
             )
         );
     }
