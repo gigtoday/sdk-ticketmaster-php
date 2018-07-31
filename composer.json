@@ -1,6 +1,9 @@
 {
   "name": "matchilling/sdk-ticketmaster",
   "description": "PHP SDK for the Ticketmaster Open Platform.",
+  "license": [
+    "GPL-3.0-or-later"
+  ],
   "require": {
     "php": ">=5.6.0",
     "flow/jsonpath": "0.3.*",
