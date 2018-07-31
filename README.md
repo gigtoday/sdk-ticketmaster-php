@@ -7,10 +7,14 @@ PHP SDK for the [Ticketmaster Open Platform](http://developer.ticketmaster.com/)
 ## Usage
 
 ```bash
-$ composer require matchilling/sdk-ticketmaster
+# PHP >= 7.1.3
+composer require matchilling/sdk-ticketmaster:2.0.0
+
+# PHP 5.6
+composer require matchilling/sdk-ticketmaster:1.0.0
 ```
 
-## License
+## License
 
 This distribution is covered by the GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007.
 
